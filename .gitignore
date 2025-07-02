@@ -21,7 +21,7 @@ microblog/media/
 # Migrations (specific to microblog app, optional: uncomment if you want to exclude migrations)
 # microblog/blog/migrations/*
 microblog/*/migrations/*
-# !microblog/microblog/migrations/__init__.py
+!microblog/*/migrations/__init__.py
 
 # Django secret settings and environment files (in microblog or blog-demo directory)
 microblog/*.env
