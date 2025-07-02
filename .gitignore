@@ -1,0 +1,84 @@
+# Python and Django/Wagtail
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environment (in microblog directory)
+.venv/
+microblog/venv/
+microblog/env/
+microblog/ENV/
+
+# Django static and media files (in microblog directory)
+microblog/staticfiles/
+microblog/media/
+
+# Django database (in microblog or blog-demo directory)
+*.sqlite3
+*.db
+
+# Migrations (specific to microblog app, optional: uncomment if you want to exclude migrations)
+# microblog/blog/migrations/*
+microblog/*/migrations/*
+# !microblog/microblog/migrations/__init__.py
+
+# Django secret settings and environment files (in microblog or blog-demo directory)
+microblog/*.env
+microblog/*.env.*
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
+secrets.json
+
+# Logs
+microblog/*.log
+microblog/logs/
+*.log
+logs/
+
+# Django debug and temporary files
+*.pid
+*.seed
+*.pid.lock
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node.js (if using frontend tools like Webpack for Wagtail)
+microblog/node_modules/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Coverage reports
+microblog/coverage/
+coverage/
+.htmlcov/
+.coverage
+.coverage.*
+.tox/
+
+# Miscellaneous
+*.swp
+*.bak
+*.tmp
+*.cache
+*.egg-info/
+dist/
+build/
+*.prof
