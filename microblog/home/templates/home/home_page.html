@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 
-<!-- load wagtailcore_tags by adding this: -->
 {% load wagtailcore_tags %}
 
-<!-- replace everything below with: -->
 {% block content %}
     {{page.title}}
     {{page.body|richtext}}
+<h2>Blogs Available:</h2>
+    <div class="blog-list">
+        {% for index_page in blog_indices %}
+            <div class="blog-item">
+                <h3><a href="{% pageurl index_page %}">{{ index_page.title }}</a></h3>
+                {% if index_page.intro %}
+                    <p>{{ index_page.intro }}</p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No blog index pages available.</p>
+        {% endfor %}
+    </div>
 {% endblock %}
