@@ -12,8 +12,9 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 
 class BlogIndexPage(Page):
     description = RichTextField(blank=True)
+    background_image = models.ForeignKey("wagtailimages.Image", related_name="+", on_delete=models.CASCADE, blank=True, null=True)
 
-    content_panels = Page.content_panels + [FieldPanel("description")]
+    content_panels = Page.content_panels + [FieldPanel("description"), FieldPanel("background_image")]
     
     
 class BlogPostTag(TaggedItemBase):

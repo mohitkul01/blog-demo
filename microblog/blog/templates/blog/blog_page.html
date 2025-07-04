@@ -2,7 +2,9 @@
 
 {% load wagtailcore_tags static wagtailimages_tags %}
 
-
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href='{% static "css/blog_page.css" %}'>
+{%endblock%}
 
 {% block content %}
 <div class="blog-container">
@@ -14,11 +16,10 @@
     {% if authors %}
     
     <div class="author-info">
-        <h3>Written By:</h3>
         <div class="author-card">
             {% for author in authors %}
             <div class="author-image">
-                {% image author.author_image fill-60x60 %}
+                {% image author.author_image fill-35x35 %}
                 <span>{{ author.name }}</span>
             </div>
             {%endfor%}
@@ -26,12 +27,38 @@
     </div>
     
     
-    <p class="meta">Published on {{ page.date }}</p>
+    <p class="meta"> on {{ page.date }}</p>
     {% endif %}
 
     {%endwith%}
     
     {{ page.body|richtext }}
+
+    {% with images=page.image_gallery.all %}
+        {% if images %}
+            <div class="image-gallery">
+                {% for image in images %}
+                    <div class="gallery-item">
+                        {% image image.image fill-340x340 %}
+                        <div class="image-caption">{{image.caption}}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% with tags=page.tags.all %}
+    {% if tags %}
+            <div class="tags">
+                Tags available:
+                {% for tag in tags %}
+                     <a href="#" class="tag-button">{{tag}}</a>
+                {% endfor %}
+            </div>
+            {% else %}
+            No tags available...
+    {% endif %}
+    {% endwith %}
     
     <p><a href="{{ page.get_parent.url }}">Return to {{page.get_parent}} </a></p>
 </div>
